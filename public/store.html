@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Emarat-Al-Aman</title>
+<script>
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}</script>
+
+<script>
+function DetectAndServe(){
+
+if (getMobileOperatingSystem() == "Android") {
+    window.location.href = "market://details?id=app.dately.android"; 
+    }
+if (getMobileOperatingSystem() == "iOS") {
+    window.location.href = "https://itunes.apple.com/us/app/dately/1434967362";
+    }
+if (getMobileOperatingSystem() == "Windows Phone") {
+    window.location.href = "https://dately.net/#download";
+    }
+if (getMobileOperatingSystem() == "unknown") {
+  window.location.href = "https://dately.net/#download";}
+};
+</script>
+</head>
+<body onload="DetectAndServe()">
+</body>
+</html>
