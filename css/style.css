@@ -295,7 +295,7 @@ iframe {
 	background: url('../images/top_background.png') no-repeat center center;
     background-size: cover;
     padding: 110px 0;
-    min-height: 70rem;
+    min-height: 100rem;
 }
 
 .feature-content {
